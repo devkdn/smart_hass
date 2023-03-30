@@ -2,9 +2,9 @@
 """Console script for smart_hass."""
 
 
-from .bayes import BayesProcessor
-from .multisensor import render_hass_config, render_sketch_file
-from . import cli_utils
+from bayes import BayesProcessor
+from multisensor import render_hass_config, render_sketch_file
+import cli_utils
 
 import click
 import json
@@ -48,7 +48,7 @@ def bayes(conf, true, sensor_ind, target_entity, to_state,
 
     if conf is not None:
         with open(conf, 'r') as conf_file:
-            parsed_yaml = yaml.load(conf_file.read())
+            parsed_yaml = yaml.load(conf_file, Loader=yaml.FullLoader)
 
     elif not click.get_text_stream('stdin').isatty:
         message = '''You must pipe valid YAML to STDIN or load a YAML file via
