@@ -27,7 +27,7 @@ test_requirements = [
 
 setup(
     name='smart_hass',
-    version='0.2.1',
+    version='0.3.0',
     description="Tools I find useful in my interactions with Home Assistant.",
     long_description=readme + '\n\n' + history,
     author="Jeff McGehee",
